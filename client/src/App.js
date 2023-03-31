@@ -1,33 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import './App.css';
+import Card from './components/layout/Card';
+import Board from './components/board/Board';
 
-function App() {
-
-  const [data, setData] = useState([{}])
-
-  useEffect(() => {
-    fetch("/getWords").then(
-      res => res.json()
-    ).then(
-      data => {
-        setData(data)
-        console.log(data)
-      }
-    )
-  }, [])
-
+function App () {
+  
   return (
-    <div>
+    <div className="app">
+      <h1>Speech Writer</h1>
 
-      {(typeof data.test == "undefined") ? (
-        <p>Loading...</p>
-      ) : (
-        data.test.map((member, pos) => (
-          <p key={pos}>{member}</p>
-        ))
-      )}
-      
+      <button className="record-btn">
+        <span>Start recording</span>
+      </button>
+
+      <div className="Cards">
+        <Card title="Board" color="purple">
+          <Board></Board>
+        </Card>
+
+        <Card title="Board" color="purple">
+          <Board></Board>
+        </Card>
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
