@@ -8,8 +8,8 @@ export default function Primeiro() {
 
     useEffect(() => {
         fetch("/getWords").then(
-            res => res.json()
-        ).then(
+            // res => res.json()
+        // ).then(
             data => {
                 setData(data)
                 console.log(data)
@@ -22,13 +22,13 @@ export default function Primeiro() {
             <h2>Texto</h2>
             <p>{msg}</p>
 
-            {(typeof data.test == "undefined") ? (
+            {/* {(typeof data.test == "undefined") ? (
                 <p>Loading...</p>
             ) : (
                 data.test.map((member, pos) => (
                     <p key={pos}>{member}</p>
                 ))
-            )}  
+            )}   */}
         </div>
     )
 }
