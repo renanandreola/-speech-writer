@@ -11,8 +11,8 @@ export default function Primeiro() {
             // res => res.json()
         // ).then(
             data => {
+                console.log(data.body.getReader())
                 setData(data)
-                console.log(data)
             }
         )
     }, [])
