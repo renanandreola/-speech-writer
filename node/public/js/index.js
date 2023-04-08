@@ -2,6 +2,8 @@ const titles = []
 var idCard = 0;
 
 function getTexts() {
+    $(".modal-info-loader").show("slow");
+
     $.get('/getInfo', function (res) {
         console.log("res ", res);
 
@@ -28,7 +30,11 @@ function getTexts() {
                     populatePreviousCard(text)
                 }
             }
+
+            $(".modal-info-loader").hide("slow");
+
         } else {
+            $(".modal-info-loader").hide("slow");
             toastr["error"]("Ocorreu um erro ao capturar som e texto");
         }
 
@@ -92,4 +98,8 @@ function populatePreviousCard(text) {
 
     // Adiciona o titulo ao card
     curretCard.appendChild(newText);
+}
+
+function closeModalInfo() {
+    $(".modal-info").hide("slow");
 }
